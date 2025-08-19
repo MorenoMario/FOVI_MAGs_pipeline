@@ -28,10 +28,15 @@ Parámetros clave utilizados:
 ## 3. Ejecución del script
 Ejemplo de ejecución:
 ```bash
-./coassemble_spades_v2.sh   -i /ruta/a/01_bbduk_ref   -o /ruta/a/spades_coassemblies   -t 30 -m 200   --kmers 21,33,55,77,99,127   --meta   --tmp-dir /ruta/a/tmp
+/home/mmoreno/.local/share/mamba/envs/spades315/bin/spades.py     --only-assembler        -k      21,33,55,77,99,127      --threads       30      --memory
+        200     -o      /datos1/mmorenos/fovi_data/01_bbduk_ref/spades_Y_coassembly     --pe1-1 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_Y1_S1_non-macroHit_R1.fastq.gz     --pe1-2 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_Y1_S1_non-macroHit_R2.fastq.gz     --pe2-1 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_Y2_S2_non-macroHit_R1.fastq.gz     --pe2-2 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_Y2_S2_non-macroHit_R2.fastq.gz     --pe3-1 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_Y3_S3_non-macroHit_R1.fastq.gz     --pe3-2 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_Y3_S3_non-macroHit_R2.fastq.gz     --pe4-1 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_Y4_S4_non-macroHit_R1.fastq.gz     --pe4-2 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_Y4_S4_non-macroHit_R2.fastq.gz     --pe5-1 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_Y5_S5_non-macroHit_R1.fastq.gz     --pe5-2 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_Y5_S5_non-macroHit_R2.fastq.gz     --pe6-1 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_Y6_S6_non-macroHit_R1.fastq.gz     --pe6-2 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_Y6_S6_non-macroHit_R2.fastq.gz 
+
+/home/mmoreno/.local/share/mamba/envs/spades315/bin/spades.py     --only-assembler        -k      21,33,55,77,99,127      --threads       30      --memory
+        200     -o      /datos1/mmorenos/fovi_data/01_bbduk_ref/spades_H_coassembly2    --pe1-1 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_H1_S7_non-macroHit_R1.fastq.gz     --pe1-2 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_H1_S7_non-macroHit_R2.fastq.gz     --pe2-1 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_H1_S8_non-macroHit_R1.fastq.gz     --pe2-2 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_H1_S8_non-macroHit_R2.fastq.gz     --pe3-1 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_H2_S10_non-macroHit_R1.fastq.gz    --pe3-2 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_H2_S10_non-macroHit_R2.fastq.gz    --pe4-1 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_H2_S9_non-macroHit_R1.fastq.gz     --pe4-2 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_H2_S9_non-macroHit_R2.fastq.gz     --pe5-1 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_H3_S11_non-macroHit_R1.fastq.gz    --pe5-2 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_H3_S11_non-macroHit_R2.fastq.gz    --pe6-1 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_H3_S12_non-macroHit_R1.fastq.gz    --pe6-2 /datos1/mmorenos/fovi_data/01_bbduk_ref/20250604_PamelaFernandez_DSG_H3_S12_non-macroHit_R2.fastq.gz
+
 ```
 
-## 4. Resultados generados
+## 3. Resultados generados
 El script genera dos carpetas de salida:
 ```
 spades_coassemblies/spades_H_coassembly/
