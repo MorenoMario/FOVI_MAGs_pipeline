@@ -9,7 +9,7 @@ This document describes how to run **CONCOCT** on co-assembled metagenomes for g
 - [CONCOCT](https://github.com/BinPro/CONCOCT)
 - Scripts: `cut_up_fasta.py`, `concoct_coverage_table.py`, `merge_cutup_clustering.py`, `extract_fasta_bins.py`
 - BAM files mapped to contigs (indexed)
-
+- mamba activate concoct-1p1 
 ---
 
 ## 🛠️ Steps
