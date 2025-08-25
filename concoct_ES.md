@@ -16,6 +16,9 @@ This document describes how to run **CONCOCT** on co-assembled metagenomes for g
 
 ### 1. Cut contigs into chunks
 ```bash
+
+mamba activate concoct-1p1
+
 cut_up_fasta.py spades_Y_coassembly/contigs.fasta   -c 10000 -o 0 --merge_last -b Y_contigs_10K.bed > Y_contigs_10K.fa
 
 cut_up_fasta.py spades_H_coassembly/contigs.fasta   -c 10000 -o 0 --merge_last -b H_contigs_10K.bed > H_contigs_10K.fa
