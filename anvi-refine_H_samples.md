@@ -134,3 +134,58 @@ anvi-summarize -p merged_profiles/PROFILE.db -c contigs.fasta.db -C "mash_H05" -
 ## 👤 Author
 Scripts maintained by **Mario Moreno (mmoreno)**.  
 Research focus: genome-resolved metagenomics of kelp-associated microbial communities.
+
+# Recommended Workflow for Bin Refinement (Anvi'o)
+
+This guide provides a **quick and effective workflow** for refining bins in Anvi'o, using sequence composition, differential coverage, and SCG/taxonomy checks.
+
+---
+
+## 🔹 Step-by-Step Workflow
+
+### 1. Start with **Seq. Composition + Diff. Coverage**
+- Use the combined view of tetranucleotide frequencies (TNFs/GC) and coverage.  
+- Visually mark clusters that separate clearly in this view.  
+- Check **SCGs (single-copy genes)** and **taxonomy** for those clusters.
+
+---
+
+### 2. Switch to **Sequence Composition**
+- If the same clusters remain separated → the difference is real in TNFs/GC → **likely contamination**.  
+- If they merge again → the separation was caused by coverage differences → **possible co-occurring populations**.  
+  - Decision depends on your biological question:  
+    - **Strictly monoclonic MAG?** → separate them.  
+    - **Broad functional unit?** → keep them together.
+
+---
+
+### 3. Test **Differential Coverage**
+- Confirms whether robust coverage patterns support the separation.  
+- Useful to decide between **true strain-level populations** vs. **noise**.
+
+---
+
+### 4. Apply Soft Filters
+- Set a **minimum contig length** (2–2.5 kb) temporarily to clarify patterns.  
+- Exclude contigs with **ultra-low coverage** (e.g., <1–2×) if they clutter the clustering.
+
+---
+
+### 5. Practical Rule of Decision
+- **Remove a cluster** if:
+  - It reduces **SCG duplication**, AND
+  - It improves the **smooth coverage profile** of the bin.  
+- **Keep the cluster** if:
+  - Removing it **breaks coverage continuity**, OR
+  - It drastically lowers completeness without solving contamination → may represent a **real subpopulation**.
+
+---
+
+## ✅ Summary
+- Start with **Seq. Composition + Diff. Coverage** as default.  
+- Cross-check with **Sequence Composition** and **Differential Coverage** views.  
+- Use **SCG duplication**, **taxonomy inconsistency**, and **coverage smoothness** as the main criteria.  
+- Apply filters to clarify the signal, not as hard exclusions.  
+- Always align the decision with your **biological goal** (strict MAG vs. population bin).
+
+---
