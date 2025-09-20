@@ -108,7 +108,7 @@ anvi-refine -c contigs.fasta.db -p merged_profiles/PROFILE.db -C "mash_H05" -b H
 
 ### 10. Summarize Refined Bins
 ```bash
-$ anvi-summarize -p MERGED_PROFILE/PROFILE.db -c contigs.db -C CONCOCT -o MERGED_SUMMARY
+$ anvi-summarize -p MERGED_PROFILE/PROFILE.db -c contigs.db -C "mash_H05" -o H1
 ```
 
 ---
