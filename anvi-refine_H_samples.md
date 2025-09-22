@@ -109,8 +109,13 @@ anvi-refine -c contigs.fasta.db -p merged_profiles/PROFILE.db -C "mash_H05" -b H
 ### 10. Summarize Refined Bins
 ```bash
 anvi-summarize -p merged_profiles/PROFILE.db -c contigs.fasta.db -C "mash_H05" -o H1
+checkm2 predict --threads 30 -x fa --input ./ --output-directory ./checkm2_sant --force --database_path /media/mmorenos/disk1/database/checkm2/checkm2_database/CheckM2_database/uniref100.KO.1.dmnd
 ```
+### 10. checkm2 to check complet. and contaminations Bins
 
+```bash
+checkm2 predict --threads 30 -x fa --input ./ --output-directory ./checkm2_sant --force --database_path /media/mmorenos/disk1/database/checkm2/checkm2_database/CheckM2_database/uniref100.KO.1.dmnd
+```
 ---
 
 ## ⚙️ Requirements
