@@ -13,3 +13,9 @@ for sample in `cat list` ; do  rgi main --input_sequence $sample --output_file  
 conda activate abricate_env
 abricate --db card ilq_contigs.fasta.db.contigs.fasta >  ilq_card.tsv
 ```
+
+```
+
+https://github.com/xinehc/args_oap
+
+```
