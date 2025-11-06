@@ -12,6 +12,54 @@ for sample in `cat list` ; do  rgi main --input_sequence $sample --output_file  
 
 conda activate abricate_env
 abricate --db card ilq_contigs.fasta.db.contigs.fasta >  ilq_card.tsv
+
+#!/usr/bin/env bash
+set -euo pipefail
+
+# === Configura aquí las bases de datos que quieres usar ===
+DBS=(argannot card ncbi ncbibetalactamase plasmidfinder resfinder)
+
+# Sufijo exacto que se removerá para obtener el prefijo (p.ej., "ilq")
+SUFFIX="_contigs.fasta.db.contigs.fasta"
+
+# Si no se pasan argumentos, usar todos los FASTA que calcen el patrón
+shopt -s nullglob
+if [[ $# -gt 0 ]]; then
+  INPUTS=("$@")
+else
+  INPUTS=(*"$SUFFIX")
+fi
+
+if [[ ${#INPUTS[@]} -eq 0 ]]; then
+  echo "No encontré archivos con el patrón *$SUFFIX en el directorio actual." >&2
+  exit 1
+fi
+
+# Obtener lista de DBs instaladas en abricate (primer campo de --list)
+# No aborta si falta alguna: solo avisa y sigue con las demás.
+mapfile -t ABR_DBS < <(abricate --list | awk 'NR>1 {print $1}')
+
+for fasta in "${INPUTS[@]}"; do
+  base=$(basename "$fasta")
+  # Quita el sufijo para obtener el prefijo (ej.: ilq_contigs... -> ilq)
+  if [[ "$base" != *"$SUFFIX" ]]; then
+    echo "ADVERTENCIA: '$base' no termina en $SUFFIX; lo salto." >&2
+    continue
+  fi
+  prefix=${base%"$SUFFIX"}
+
+  for db in "${DBS[@]}"; do
+    if printf '%s\n' "${ABR_DBS[@]}" | grep -qx "$db"; then
+      echo "[$(date +%T)] Ejecutando: sample=${prefix} | db=${db}"
+      abricate --db "$db" "$fasta" > "${prefix}_${db}.tsv"
+    else
+      echo "ADVERTENCIA: la base '$db' no aparece en 'abricate --list'. Me la salto." >&2
+    fi
+  done
+done
+
+echo "Listo: salidas *.tsv generadas por cada muestra x base."
+
 ```
 
 ```
