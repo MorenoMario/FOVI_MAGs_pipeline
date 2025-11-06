@@ -8,4 +8,8 @@ rgi auto_load -i localDB/card.json
 for sample in `cat list` ; do  rgi main --input_sequence $sample --output_file  $sample.rgi --local --clean -a DIAMOND -t protein -n 60 --low_quality --include_nudge ; done
 /media/mmorenos/disk3/DSG123-selected/001_anvio_metag/Y_genomes
 ```
+```
 
+conda activate abricate_env
+abricate --db card ilq_contigs.fasta.db.contigs.fasta >  ilq_card.tsv
+```
