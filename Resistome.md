@@ -65,5 +65,6 @@ echo "Listo: salidas *.tsv generadas por cada muestra x base."
 ```
 
 https://github.com/xinehc/args_oap
-
+nohup args_oap stage_one -i ./ -o output -f fa -t 60 &
+*recordar que se analiza a partir de reads en formato fasta
 ```
